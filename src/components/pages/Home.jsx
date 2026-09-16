@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { Play, Sparkles, Tv, Layers, Shield, Star, ArrowRight, ArrowLeftRight, Search } from 'lucide-react';
 import Trending from "../common/Trending";
 import Popular from "../common/Popular";
-import TopRated from "../common/Toprated";
+import TopRated from "../common/TopRated";
 
 // Comprehensive TMDB Genre ID dictionary
 const GENRE_MAP = {
