@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useSearchParams, Link } from "react-router-dom";
 import { Star, Play, Home, Search, ChevronRight } from "lucide-react";
+import { API_KEY } from "../../apiConfig";
 
 export default function SearchResults() {
   const [searchParams] = useSearchParams();
@@ -8,8 +9,6 @@ export default function SearchResults() {
 
   const [results, setResults] = useState([]);
   const [loading, setLoading] = useState(false);
-
-  const API_KEY = "1476cff43fbcd08886135a08bf98665e";
 
   useEffect(() => {
     if (!query) return;

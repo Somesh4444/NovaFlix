@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { Star, Play, ChevronRight, Home, Film, SlidersHorizontal, Grid, Plus } from "lucide-react";
 import { Link } from "react-router-dom";
+import { API_KEY } from "../../apiConfig";
 
 export default function List() {
   const [movies, setMovies] = useState([]);
@@ -10,8 +11,6 @@ export default function List() {
   const [page, setPage] = useState(1); 
   const [sortBy, setSortBy] = useState("default"); 
   const [showDropdown, setShowDropdown] = useState(false); 
-
-  const API_KEY = "1476cff43fbcd08886135a08bf98665e";
 
   // Sorting logic wrapped in useMemo
   const sortedMovies = useMemo(() => {

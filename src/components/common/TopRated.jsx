@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Star, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { API_KEY } from "../../apiConfig";
 
 // Swiper styles
 import "swiper/css";
@@ -14,9 +15,8 @@ export default function TopRated() {
   useEffect(() => {
     const fetchTopRatedMovies = async () => {
       try {
-        // Replace with your actual TMDB API Key securely
-        const apiKey = "1476cff43fbcd08886135a08bf98665e"; 
-        const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${apiKey}&language=en-US&page=1`;
+        // Replace with your actual TMDB API Key securely 
+        const url = `https://api.themoviedb.org/3/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`;
         
         const response = await fetch(url);
         const data = await response.json();

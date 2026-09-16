@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"; // Assumed react-router handles your pl
 import { Star, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { API_KEY } from "../../apiConfig";
 
 // Swiper styles
 import "swiper/css";
@@ -11,13 +12,10 @@ export default function Popular() {
   const [tvShows, setTvShows] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  const API_KEY = "1476cff43fbcd08886135a08bf98665e";
-
   useEffect(() => {
     const fetchPopularTVShows = async () => {
       try {
         const apiKey = API_KEY;
-        // Updated API endpoint to fetch popular TV shows
         const url = `https://api.themoviedb.org/3/tv/popular?api_key=${apiKey}&language=en-US&page=1`;
         
         const response = await fetch(url);

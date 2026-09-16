@@ -4,6 +4,7 @@ import { Play, Sparkles, Tv, Layers, Shield, Star, ArrowRight, ArrowLeftRight, S
 import Trending from "../common/Trending";
 import Popular from "../common/Popular";
 import TopRated from "../common/TopRated";
+import { API_KEY, IMAGE_BASE_URL } from "../../apiConfig";
 
 // Comprehensive TMDB Genre ID dictionary
 const GENRE_MAP = {
@@ -25,9 +26,6 @@ export default function Home() {
   const [searchQuery, setSearchQuery] = useState("");
   // 2. This function tool lets us change pages programmatically
   const navigate = useNavigate();
-
-  const API_KEY = "1476cff43fbcd08886135a08bf98665e"; 
-  const IMAGE_BASE_URL = "https://image.tmdb.org/t/p/w500";
 
   useEffect(() => {
     const fetchHeroData = async () => {

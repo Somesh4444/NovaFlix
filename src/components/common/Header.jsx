@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Search, Menu, X, ChevronDown, Bookmark} from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { API_KEY } from "../../apiConfig";
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,8 +14,6 @@ export default function Header() {
   
   // Dynamic state container to hold the genres returned from TMDB
   const [genres, setGenres] = useState([]);
-
-  const API_KEY = "1476cff43fbcd08886135a08bf98665e";
 
   // FETCH DYNAMIC GENRE DATA SYSTEM ON MOUNT
   useEffect(() => {

@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { Star, ChevronLeft, ChevronRight, Play } from "lucide-react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay, Navigation } from "swiper/modules";
+import { API_KEY } from "../../apiConfig";
 
 // Swiper styles
 import "swiper/css";
@@ -14,8 +15,7 @@ export default function Trending() {
   useEffect(() => {
     const fetchTrendingMovies = async () => {
       try {
-        // Replace with your actual TMDB API Key securely
-        const apiKey = "1476cff43fbcd08886135a08bf98665e"; 
+        const apiKey = API_KEY;
         const url = `https://api.themoviedb.org/3/trending/movie/day?api_key=${apiKey}&language=en-US`;
         
         const response = await fetch(url);
@@ -36,10 +36,7 @@ export default function Trending() {
 
   return (
     <section className="relative py-10 select-none overflow-hidden">
-      {/* Container */}
       <div className="max-w-7xl mx-auto px-6">
-        
-        {/* Header */}
         <div className="flex items-end justify-between mb-6">
           <div>
             <p className="text-cyan-400 text-xs font-bold uppercase tracking-widest mb-1">
@@ -51,7 +48,6 @@ export default function Trending() {
             </h2>
           </div>
 
-          {/* Navigation Controls */}
           <div className="flex gap-2">
             <button className="trending-prev w-9 h-9 rounded-xl bg-white/5 border border-white/10 hover:border-cyan-400/40 hover:bg-cyan-400/10 text-gray-400 hover:text-cyan-400 transition flex items-center justify-center cursor-pointer">
               <ChevronLeft size={16} />
@@ -66,7 +62,6 @@ export default function Trending() {
         {/* Swiper Layout Engine */}
         <div className="w-full relative overflow-hidden">
           {loading ? (
-            /* COMPACT SKELETON PLACEHOLDER LOADER VIEW */
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4 animate-pulse">
               {[...Array(6)].map((_, idx) => (
                 <div key={idx} className="bg-white/5 border border-white/5 rounded-2xl p-2 flex flex-col gap-3">
@@ -101,7 +96,6 @@ export default function Trending() {
             >
               {movies.map((movie) => (
                 <SwiperSlide key={movie.id} className="h-auto min-w-0">
-                  {/* Entire card wrapped in Link */}
                   <Link 
                     to={`/details/movie/${movie.id}`}
                     className="group relative flex flex-col w-full h-full cursor-pointer bg-white/2 border border-white/5 hover:border-cyan-500/20 rounded-2xl p-2 transition-all duration-300 hover:bg-white/4 hover:shadow-xl hover:shadow-cyan-500/2"

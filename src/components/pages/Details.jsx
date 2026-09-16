@@ -1,23 +1,17 @@
 import { useEffect, useState } from "react";
 import { useParams, Link } from "react-router-dom";
 import {Star, Play, Clock, Calendar, Globe, Film, ExternalLink, Link2, Heart, Flame, X} from "lucide-react";
+import { API_KEY } from "../../apiConfig";
 
 export default function MovieDetails() {
-  // 1. 🚀 FIXED: Capture BOTH the layout 'type' and the 'id' parameters from your updated Router Switch paths
   const { type, id } = useParams(); 
   
   const [movie, setMovie] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  
-  // Modal toggle state and trailer key pointer storage tracking
   const [showModal, setShowModal] = useState(false);
   const [trailerKey, setTrailerKey] = useState("");
-
-  // Track if the current item is inside the user's local storage watchlist
   const [isWatchlisted, setIsWatchlisted] = useState(false);
-
-  const API_KEY = "1476cff43fbcd08886135a08bf98665e";
 
   useEffect(() => {
     const fetchMovieDetails = async () => {
@@ -25,7 +19,7 @@ export default function MovieDetails() {
         setLoading(true);
         setError(null); // Reset layout error state states on fresh re-mounts
 
-        // 2. 🚀 FIXED: Swap out the hardcoded '/movie/' sub-path wrapper block segment for your dynamic dynamic variable segment `${type}`
+        // 2. Swap out the hardcoded '/movie/' sub-path wrapper block segment for your dynamic dynamic variable segment `${type}`
         const response = await fetch(
           `https://api.themoviedb.org/3/${type}/${id}?api_key=${API_KEY}&append_to_response=credits,recommendations,keywords,alternative_titles,videos`
         );

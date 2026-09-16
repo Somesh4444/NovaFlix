@@ -1,6 +1,7 @@
 import { useEffect, useState, useMemo } from "react";
 import { useParams, useSearchParams, Link } from "react-router-dom";
 import { Star, Play, ChevronRight, Home, Film, SlidersHorizontal, Grid, Plus } from "lucide-react";
+import { API_KEY } from "../../apiConfig";
 
 export default function GenrePage() {
   // Reads the dynamic numeric ID from /genre/:genreId
@@ -16,8 +17,6 @@ export default function GenrePage() {
   const [page, setPage] = useState(1);
   const [sortBy, setSortBy] = useState("default");
   const [showDropdown, setShowDropdown] = useState(false);
-
-  const API_KEY = "1476cff43fbcd08886135a08bf98665e";
 
   // Reset page and data arrays completely if the user switches genres via the navigation menu
   useEffect(() => {
