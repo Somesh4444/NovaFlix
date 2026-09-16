@@ -5,3 +5,7 @@
 body {
    font-family: "Comme", sans-serif;
 }
+
+.nl-wrap{
+   display: none !important;
+}
